@@ -5,12 +5,21 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all categories
+  const allCategories = await Category.findAll().catch((err) => {
+    res.json(err);
+  });
   // be sure to include its associated Products
+  res.json(allCategories)
 });
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
+  const categoryById = await Category.findByPk(req.params.id);
   // be sure to include its associated Products
+  if (!categoryById) {
+    res.status(404).json({ message: 'No category with this id!' });
+    return;
+  }
 });
 
 router.post('/', (req, res) => {
