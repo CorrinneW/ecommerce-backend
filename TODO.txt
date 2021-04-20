@@ -1,0 +1,18 @@
+TODO:
+
+Create connection.js, initialize sequelize and import to server.js X
+
+Complete API routes for category, product and tag:
+	-GET & GET by ID json data
+	-POST create
+	-PUT update
+	-DELETE & DELETE by ID
+
+Complete Models w/ columns
+
+Write association methods for models
+
+Seed data
+
+Walktrough Video
+
