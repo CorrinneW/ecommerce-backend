@@ -8,9 +8,9 @@ Complete API routes for category, product and tag:
 	-PUT update
 	-DELETE & DELETE by ID
 
-Complete Models w/ columns
+Complete Models w/ columns X
 
-Write association methods for models
+Write association methods for models X
 
 Seed data
 
