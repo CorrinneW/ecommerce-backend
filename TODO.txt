@@ -2,7 +2,7 @@ TODO:
 
 Create connection.js, initialize sequelize and import to server.js X
 
-Complete API routes for category, product and tag:
+Complete API routes for category, product and tag: X
 	-GET & GET by ID json data
 	-POST create
 	-PUT update
@@ -12,7 +12,7 @@ Complete Models w/ columns X
 
 Write association methods for models X
 
-Seed data
+Seed data X
 
 Walktrough Video
 
