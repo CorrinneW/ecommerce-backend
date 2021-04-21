@@ -3,41 +3,44 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get('/api/categories', async (req, res) => {
+router.get('/', async (req, res) => {
   // find all categories
-  const categoryData = await Category.findAll({include: [{ model: Product }]}).catch((err) => {
-    res.json(err);
-  });
   // be sure to include its associated Products
-  res.json(categoryData)
+  try {
+    const categoryData = await Category.findAll({ include: [{ model: Product }] })
+    res.json(categoryData)
+  }
+  catch (err) {
+    res.json(err);
+  }
 });
 
-router.get('/categories/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   // find one category by its `id` value
+  // be sure to include its associated Products
   try {
-    const categoryData = await Category.findByPk(req.params.id, {include: [{ model: Product }]});
-    // be sure to include its associated Products
+    const categoryData = await Category.findByPk(req.params.id, { include: [{ model: Product }] });
     if (!categoryData) {
       res.status(404).json({ message: 'No category with this id!' });
       return;
     }
     res.status(200).json(categoryData);
   } catch (err) {
-    res.status(500).json(err);
+    res.json(err);
   }
 });
 
-router.post('/api/categories', async (req, res) => {
+router.post('/', async (req, res) => {
   // create a new category
   try {
     const categoryData = await Category.create(req.body);
     res.status(200).json(categoryData);
   } catch (err) {
-    res.status(400).json(err);
+    res.json(err);
   }
 });
 
-router.put('/categories/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try {
     const categoryData = await Category.update(req.body, {
@@ -51,7 +54,7 @@ router.put('/categories/:id', async (req, res) => {
     }
     res.status(200).json(categoryData);
   } catch (err) {
-    res.status(500).json(err);
+    res.json(err);
   }
 });
 
@@ -69,7 +72,7 @@ router.delete('/:id', async (req, res) => {
     }
     res.status(200).json(categoryData);
   } catch (err) {
-    res.status(500).json(err);
+    res.json(err);
   }
 });
 
