@@ -21,3 +21,9 @@ https://soundcloud.com/scottbuckley
 Creative Commons — Attribution 3.0 Unported — CC BY 3.0
 Free Download / Stream: http://bit.ly/-this-too-shall-pass
 Music promoted by Audio Library https://youtu.be/SEKx5vpSgvI
+
+
+## License
+
+MIT License
+![test](https://img.shields.io/apm/l/test)
